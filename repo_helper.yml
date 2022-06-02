@@ -5,7 +5,7 @@ copyright_years: 2020-2022
 author: 'Dominic Davis-Foster'
 email: 'dominic@davis-foster.co.uk'
 username: 'domdfcoding'
-version: '0.0.0'
+version: '1.0.0b1'
 license: 'BSD-3-Clause'
 short_desc: 'Core (offline) functionality for the apeye library.'
 
