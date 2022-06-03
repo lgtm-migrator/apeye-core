@@ -58,7 +58,7 @@ python-implementations = [ "CPython", "PyPy",]
 platforms = [ "Windows", "macOS", "Linux",]
 license-key = "BSD-3-Clause"
 package = "apeye_core"
-additional-files = [ "include apeye/public_suffix_list.dat",]
+additional-files = [ "include apeye_core/public_suffix_list.dat",]
 
 [tool.mypy]
 python_version = "3.6"
