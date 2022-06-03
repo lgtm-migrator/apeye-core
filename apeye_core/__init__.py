@@ -104,10 +104,12 @@ class URLPath(pathlib.PurePosixPath):
 
 	.. versionchanged:: 1.1.0
 
-		Implemented :meth:`~.URLPath.is_absolute`, :meth:`~.URLPath.joinpath`,
-		:meth:`~.URLPath.relative_to`, :meth:`~.pathlib.PurePath.match`,
+		Implemented :meth:`~.apeye.url.URLPath.is_absolute`, :meth:`~.apeye.url.URLPath.joinpath`,
+		:meth:`~.apeye.url.URLPath.relative_to`, :meth:`~.pathlib.PurePath.match`,
 		``anchor``, ``drive``, and support for rich comparisons (``<``, ``<=``, ``>`` and ``>=``),
 		which previously raised :exc:`NotImplementedError`.
+
+	.. latex:clearpage::
 	"""
 
 	def __str__(self) -> str:
@@ -142,11 +144,11 @@ class URLPath(pathlib.PurePosixPath):
 
 	def joinpath(self: URLPathType, *args) -> URLPathType:
 		"""
-		Combine this :class:`~.URLPath` with one or several arguments.
+		Combine this :class:`~.apeye.url.URLPath` with one or several arguments.
 
 		.. versionadded:: 1.1.0  previously raised :exc:`NotImplementedError`.
 
-		:returns: A new :class:`~.URLPath` representing either a subpath
+		:returns: A new :class:`~.apeye.url.URLPath` representing either a subpath
 			(if all arguments are relative paths) or a totally different path
 			(if one of the arguments is absolute).
 		"""
@@ -172,9 +174,11 @@ class URLPath(pathlib.PurePosixPath):
 
 		:raises ValueError: if the operation is not possible (because this is not a subpath of the other path)
 
+		.. latex:clearpage::
+
 		.. seealso::
 
-			:meth:`~.URL.relative_to`, which is recommended when constructing a relative path from a :class:`~URL`.
+			:meth:`~.apeye.url.URL.relative_to`, which is recommended when constructing a relative path from a :class:`~URL`.
 			This method cannot correctly handle some cases, such as:
 
 			.. code-block:: pycon
@@ -203,7 +207,7 @@ class URL(os.PathLike):
 
 	:param url: The URL to construct the :class:`~apeye.url.URL` object from.
 
-	.. versionchanged:: 0.3.0  The ``url`` parameter can now be a string or a :class:`~.URL`.
+	.. versionchanged:: 0.3.0  The ``url`` parameter can now be a string or a :class:`~.apeye.url.URL`.
 
 	.. versionchanged:: 1.1.0
 
@@ -211,6 +215,7 @@ class URL(os.PathLike):
 
 	.. autoclasssumm:: URL
 		:autosummary-sections: Methods
+		:autosummary-exclude-members: __lt__,__le__,__gt__,__ge__,__init__,__hash__
 
 	.. autosummary-widths:: 1/5
 
@@ -357,7 +362,7 @@ class URL(os.PathLike):
 
 		Except for the final path element any queries and fragments are ignored.
 
-		:returns: A new :class:`~.URL` representing either a subpath
+		:returns: A new :class:`~.apeye.url.URL` representing either a subpath
 			(if all arguments are relative paths) or a totally different path
 			(if one of the arguments is absolute).
 		"""
@@ -409,7 +414,7 @@ class URL(os.PathLike):
 
 		Except for the final path element any queries and fragments are ignored.
 
-		:returns: A new :class:`~.URL` representing either a subpath
+		:returns: A new :class:`~.apeye.url.URL` representing either a subpath
 			(if all arguments are relative paths) or a totally different path
 			(if one of the arguments is absolute).
 		"""
@@ -418,7 +423,7 @@ class URL(os.PathLike):
 
 	def __fspath__(self) -> str:
 		"""
-		Returns the file system path representation of the :class:`~.URL`.
+		Returns the file system path representation of the :class:`~.apeye.url.URL`.
 
 		This is comprised of the ``netloc`` and ``path`` attributes.
 		"""
@@ -668,8 +673,8 @@ class URL(os.PathLike):
 
 		.. versionadded:: 1.1.0
 
-		:param other: Either a :class:`~.URL`, or a string or :class:`~.URLPath` representing an *absolute* path.
-			If a :class:`~.URL`, the :attr:`~.URL.netloc` must match this URL's.
+		:param other: Either a :class:`~.apeye.url.URL`, or a string or :class:`~.apeye.url.URLPath` representing an *absolute* path.
+			If a :class:`~.apeye.url.URL`, the :attr:`~.apeye.url.URL.netloc` must match this URL's.
 
 		:raises ValueError: if the operation is not possible
 			(i.e. because this URL's path is not a subpath of the other path)

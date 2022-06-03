@@ -70,7 +70,7 @@ class EmailSyntaxError(ValueError):
 @prettify_docstrings
 class ValidatedEmail:
 	"""
-	Represents the return type of the :func:`~.validate_email` function.
+	Represents the return type of the :func:`~apeye.email_validator.validate_email` function.
 
 	This class holds the normalized form of the email address alongside other information.
 
@@ -84,7 +84,6 @@ class ValidatedEmail:
 	:param smtputf8: Indicates whether SMTPUTF8 will be required to transmit messages to this address.
 
 	.. autosummary-widths:: 1/4
-		:html: 2/10
 	"""
 
 	#: The email address that was passed to validate_email. (If passed as bytes, this will be a string.)
@@ -145,12 +144,24 @@ class ValidatedEmail:
 		self.smtputf8 = smtputf8
 
 	def __str__(self) -> str:
+		"""
+		Return a string representation of the :class:`~apeye.email_validator.ValidatedEmail` object.
+		"""
+
 		return self.email
 
 	def __repr__(self) -> str:
+		"""
+		Return a string representation of the :class:`~apeye.email_validator.ValidatedEmail` object.
+		"""
+
 		return f"<ValidatedEmail {self.email}>"
 
 	def __eq__(self, other) -> bool:
+		"""
+		Return ``self == other``.
+		"""
+
 		return (
 				self.email == other.email and self.local_part == other.local_part and self.domain == other.domain
 				and self.ascii_email == other.ascii_email and self.ascii_local_part == other.ascii_local_part
@@ -159,7 +170,7 @@ class ValidatedEmail:
 
 	def as_dict(self) -> Dict[str, Any]:
 		"""
-		Convenience method for accessing the :class:`~.ValidatedEmail` as a dict.
+		Convenience method for accessing the :class:`~apeye.email_validator.ValidatedEmail` as a dict.
 		"""
 
 		return {
